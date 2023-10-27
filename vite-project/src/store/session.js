@@ -35,9 +35,13 @@ export const login = (email, password) => async (dispatch) => {
 	console.log("Email & password:", email, password)
 	const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
 		method: "POST",
+		mode: "no-cors",
+		credentials: 'include',
 		headers: {
 			"Access-Control-Allow-Origin": "*",
-			// "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+			'Access-Control-Allow-Headers': 'Content-Type',
+			'Access-Control-Allow-Credentials': true,
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
@@ -51,6 +55,8 @@ export const login = (email, password) => async (dispatch) => {
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
+		console.log("===========", response)
+
 		const data = await response.json();
 		if (data.errors) {
 			console.log("Errors:", data.errors)

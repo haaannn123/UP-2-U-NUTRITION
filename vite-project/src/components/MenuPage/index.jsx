@@ -16,7 +16,7 @@ const MenuPage = () => {
   const dispatch = useDispatch()
   const menu1 = useSelector(state => state.menuReducer)
   const currentMenuCategory = Object.values(menu1)
-
+  const user = useSelector(state => state.session.user)
   useEffect(() => {
     dispatch(getAllMenuItemThunk())
   }, [dispatch])
@@ -31,7 +31,7 @@ const MenuPage = () => {
   const [startPosition, setStartPosition] = useState(0);
 
   //place holder for check on user
-  const user = null
+  // const user = null
   const nameOfLastCategory = menuCategories[menuCategories.length - 1];
   const lengthOfLastCategory = combinedMenu[nameOfLastCategory].length;
 
