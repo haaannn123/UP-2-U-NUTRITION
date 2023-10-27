@@ -13,6 +13,7 @@ from .seeds import seed_commands
 from .config import Config
 
 app = Flask(__name__, static_folder='../vite-project/dist', static_url_path='/')
+# app = Flask(__name__)
 
 # Setup login manager
 login = LoginManager(app)
@@ -26,6 +27,8 @@ def load_user(id):
 
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
+# CORS(app, origins=['http://localhost:5000','http://localhost:5173'])
 
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
@@ -36,7 +39,7 @@ db.init_app(app)
 Migrate(app, db)
 
 # Application Security
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+# CORS(app)
 
 
 # @app.route('/test')

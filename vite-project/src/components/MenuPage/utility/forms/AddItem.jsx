@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { menuCategories } from "../menu/menu-categories";
+import { useDispatch, useSelector } from "react-redux";
+import { createMenuItemThunk } from "../../../../store/menus";
+
 
 export function AddItem() {
+  const dispatch = useDispatch()
+
+  // const user = useSelector(state => state.session.user)
+
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [file, setFile] = useState("");
@@ -9,28 +16,46 @@ export function AddItem() {
   const [currentIngredients, setCurrentIngredients] = useState("")
   const [ingredients, setIngrediants] = useState([]);
   const [nutrition, setNutrition] = useState([]);
-  const [price, setPrice] = useState(4);
+  const [price, setPrice] = useState("");
   const [errors, setErrors] = useState([]);
+  const [submitted, setSubmitted] = useState(false)
+  const [image, setImage] = useState("")
+  const [nutrient, setNutrient] = useState("")
+  const [weight, setWeight] = useState("")
+  const [percentage, setPercentage] = useState("")
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     setErrors([]);
-    const newMenuItem = {
-      name,
-      category,
-      file,
-      ingredients,
-      nutrition,
-      price,
-    };
+    // const newMenuItem = {
+    //   name,
+    //   category,
+    //   file,
+    //   ingredients,
+    //   nutrition,
+    //   price,
+    // };
+
+    const newMenuItem = new FormData()
+    newMenuItem.append("name", name)
+    newMenuItem.append('image', image)
+    newMenuItem.append('category', category)
+    newMenuItem.append('price', price)
+    newMenuItem.append('ingredient_name', currentIngredients)
+    newMenuItem.append('nutrient', nutrient)
+    newMenuItem.append('weight', weight)
+    newMenuItem.append('percentage', percentage)
+
+
     //make database call here
     //handle errors here
-    if (errors.length) {
-      //do the thing
+    if (!errors.length) {
+      const data = await dispatch(createMenuItemThunk(newMenuItem))
+
     }
     //do something on success
-    console.log(newMenuItem);
+    // console.log(newMenuItem);
   }
 
   const onImageChange = (e) => {
@@ -42,19 +67,19 @@ export function AddItem() {
     // setPreview(URL.createObjectURL(e.target.value))
   }
 
- const handleIngredients = () => {
-   if(!currentIngredients) return
+  const handleIngredients = () => {
+    if (!currentIngredients) return
     const tempIngredients = [...ingredients, ...currentIngredients.split(", ")]
     setCurrentIngredients("")
     setIngrediants(tempIngredients)
- }
+  }
 
- const deleteIngredients = (e) => {
+  const deleteIngredients = (e) => {
     const tempIngredients = [...ingredients]
     console.log(tempIngredients[e.target.id])
     tempIngredients.splice(e.target.id, 1)
     setIngrediants(tempIngredients)
- }
+  }
 
   return (
     <div className="w-full max-w-lg m-auto">
@@ -86,17 +111,17 @@ export function AddItem() {
             required
           >
             <option
-            value=""
-            disabled
-            hidden
+              value=""
+              disabled
+              hidden
             >
               Choose items category
             </option>
             {menuCategories.map(category => {
-                        return (
-                            <option key={`add-${category}`} value={category}>{category}</option>
-                        )
-                    })}
+              return (
+                <option key={`add-${category}`} value={category}>{category}</option>
+              )
+            })}
           </select>
         </div>
         <div className="flex flex-col space-y-3">
@@ -112,7 +137,7 @@ export function AddItem() {
           />
         </div>
         <div className="rounded-lg overflow-hidden m-auto">
-            { preview && <img className="h-40 w-32 object-cover" src={preview} alt="preview" /> }
+          {preview && <img className="h-40 w-32 object-cover" src={preview} alt="preview" />}
         </div>
         <div className="flex flex-col space-y-3">
           <label htmlFor="image">Enter Ingredients:</label>
@@ -129,18 +154,18 @@ export function AddItem() {
         </div>
 
         <div className="grid grid-cols-3 align-between" >
-            <div className="text-lg">Current Ingredients:</div>
-            <div></div>
-            <div></div>
-            {ingredients.length !==0 && ingredients.map((ingredient, i) => {
-                return (
-            <div className="flex space-x-1" key={`ing-${ingredient}`}>
+          <div className="text-lg">Current Ingredients:</div>
+          <div></div>
+          <div></div>
+          {ingredients.length !== 0 && ingredients.map((ingredient, i) => {
+            return (
+              <div className="flex space-x-1" key={`ing-${ingredient}`}>
                 <div className="text-lg" id={i}>{ingredient}</div>
                 <div className="overflow-hidden" onClick={deleteIngredients} id={i}>
-                    <img id={i} className="h-3 w-3" src="/images/x.png"></img>
+                  <img id={i} className="h-3 w-3" src="/images/x.png"></img>
                 </div>
-            </div>)
-            })}
+              </div>)
+          })}
 
         </div>
       </form>

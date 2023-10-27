@@ -1,38 +1,65 @@
 {
-  "hash": "f9ba3df3",
-  "browserHash": "2018b5e4",
+  "hash": "c40219ce",
+  "browserHash": "7241bcf3",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "b8e2063e",
+      "fileHash": "aad199ac",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "ee989888",
+      "fileHash": "97f38e51",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.js",
       "file": "react-router-dom.js",
-      "fileHash": "1bea3ae8",
+      "fileHash": "8badb0db",
       "needsInterop": false
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/es/index.js",
+      "file": "react-redux.js",
+      "fileHash": "333d9b52",
+      "needsInterop": false
+    },
+    "redux": {
+      "src": "../../node_modules/redux/es/redux.js",
+      "file": "redux.js",
+      "fileHash": "0f0101c8",
+      "needsInterop": false
+    },
+    "redux-thunk": {
+      "src": "../../node_modules/redux-thunk/es/index.js",
+      "file": "redux-thunk.js",
+      "fileHash": "b0b6cf2a",
+      "needsInterop": false
+    },
+    "redux-logger": {
+      "src": "../../node_modules/redux-logger/dist/redux-logger.js",
+      "file": "redux-logger.js",
+      "fileHash": "4934e7d4",
+      "needsInterop": true
     },
     "react-dom": {
       "src": "../../node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "b42cab79",
+      "fileHash": "f8950599",
       "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-RWABTSJT": {
-      "file": "chunk-RWABTSJT.js"
+    "chunk-D5SJRT53": {
+      "file": "chunk-D5SJRT53.js"
     },
-    "chunk-L7APZED3": {
-      "file": "chunk-L7APZED3.js"
+    "chunk-ZAUFE7H7": {
+      "file": "chunk-ZAUFE7H7.js"
+    },
+    "chunk-UXIASGQL": {
+      "file": "chunk-UXIASGQL.js"
     }
   }
 }

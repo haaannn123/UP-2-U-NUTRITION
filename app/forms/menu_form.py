@@ -13,7 +13,17 @@ def text_length(form, field):
 class MenuForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     image = StringField('Image')
-    ingredients = StringField('Ingredients')
-    nutrition = StringField('Nutrition')
+    category = StringField('Category')
+    price = IntegerField('Price')
     created_at = DateField('Date')
+    submit = SubmitField('Submit')
+
+class IngredientForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class NutritionForm(FlaskForm):
+    nutrient = StringField('Nutrient', validators=[DataRequired()])
+    weight = StringField('Weight')
+    percentage = IntegerField('Percentage')
     submit = SubmitField('Submit')

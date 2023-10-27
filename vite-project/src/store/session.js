@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -14,7 +16,7 @@ const removeUser = () => ({
 const initialState = { user: null };
 
 export const authenticate = () => async (dispatch) => {
-	const response = await fetch("/api/auth/", {
+	const response = await fetch("http://127.0.0.1:5000/api/auth/", {
 		headers: {
 			"Content-Type": "application/json",
 		},
@@ -30,10 +32,12 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-	console.log("Email & password:" , email, password)
+	console.log("Email & password:", email, password)
 	const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
 		method: "POST",
 		headers: {
+			"Access-Control-Allow-Origin": "*",
+			// "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
@@ -56,6 +60,41 @@ export const login = (email, password) => async (dispatch) => {
 		return ["An error occurred. Please try again."];
 	}
 };
+// export const login = (email, password) => async (dispatch) => {
+// 	try {
+// 		console.log("Email & password:", email, password);
+// 		const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+// 			method: "POST",
+// 			headers: {
+// 				"Content-Type": "application/json",
+// 			},
+// 			body: JSON.stringify({
+// 				email,
+// 				password,
+// 			}),
+// 		});
+
+// 		if (response.ok) {
+// 			const data = await response.json();
+// 			// If you're using Redux, dispatch an action to set the user data
+// 			// dispatch(setUser(data));
+// 			return null;
+// 		} else if (response.status < 500) {
+// 			const data = await response.json();
+// 			if (data.errors) {
+// 				console.log("Errors:", data.errors);
+// 				return data.errors;
+// 			}
+// 		} else {
+// 			return ["An error occurred. Please try again."];
+// 		}
+// 	} catch (error) {
+// 		console.error("Fetch error:", error);
+// 		// Handle any additional error handling here if needed
+// 	}
+// };
+
+
 
 export const logout = () => async (dispatch) => {
 	const response = await fetch("/api/auth/logout", {

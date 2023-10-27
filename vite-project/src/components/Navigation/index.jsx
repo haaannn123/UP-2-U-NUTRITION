@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 import { useState, useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 import { randomElement } from '../util';
-
+import ProfileButton from './ProfileButton';
 
 function Navigation({ isLoaded }) {
-	// const sessionUser = useSelector((state) => state.session.user);
+	const sessionUser = useSelector((state) => state.session.user);
 	const [menuImgSrc, setMenuImgSrc] = useState("/images/icons/menu.png");
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
@@ -61,6 +61,10 @@ function Navigation({ isLoaded }) {
 						<img id="sub-icon" src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
+					<div>
+						<ProfileButton user={sessionUser} />
+						<p>Hello</p>
+					</div>
 				</div>
 			</div>
 			<div className="all-line">
@@ -69,11 +73,8 @@ function Navigation({ isLoaded }) {
 				<div className="green-line"></div>
 				<div className="blue-line"></div>
 			</div>
-			{/* {isLoaded && (
-				  <li>
-					  <ProfileButton user={sessionUser} />
-				  </li>
-			  )} */}
+			{/* {isLoaded && ( */}
+			{/* )} */}
 		</div>
 	);
 }
