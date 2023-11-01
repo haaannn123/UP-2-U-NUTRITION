@@ -1,17 +1,25 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navigation.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from "../../store/session";
 import { randomElement } from '../util';
 import { totalSum } from '../util';
 
 function Navigation({ isLoaded }) {
-	const sessionUser = useSelector((state) => state.session.user);
+	const dispatch = useDispatch();
 	const [menuImgSrc, setMenuImgSrc] = useState("/images/icons/menu.png");
 	const [ourstoryImgSrc, setOurstoryImgSrc] = useState("/images/icons/our_story.png")
 	const [eventsImgSrc, setEventsImgSrc] = useState("/images/icons/events.png")
 	const [yourstoryImgSrc, setYourstoryImgSrc] = useState("/images/icons/your_story.png")
 	const [cartImgSrc, setCartImgSrc] = useState("/images/icons/cart_empty.png")
+	const user = useSelector(state => state.session.user);
+	const navigate = useNavigate();
+
+	const handleLogout = (e) => {
+		e.preventDefault();
+		dispatch(logout());
+	};
 
 	const menuColorRandom = [
 		"/images/icons/menu_ro_b.png",
@@ -63,11 +71,20 @@ function Navigation({ isLoaded }) {
 							src={cartImgSrc}
 							alt="Cart" />
 					</NavLink>
-					{/* <div>
-						<ProfileButton user={sessionUser} />
-						<p>Hello</p>
-					</div> */}
+					
 				</div>
+				{user ? (
+					<div onClick={handleLogout}className="cursor-pointer flex flex-col justify-center items-center">
+						<i className="fa-solid fa-arrow-right-from-bracket"></i>
+						<div className="p-1">Log Out</div>
+					</div>
+				) : (
+				<div onClick={handleLogout}className="cursor-pointer flex flex-col justify-center items-center">
+					<i className="fa-solid fa-arrow-right-to-bracket"></i>
+					<div onClick={() => navigate('/login')}className="p-1">Log In</div>
+				</div>
+				)}
+				
 			</div>
 			<div className="all-line">
 				<div className="orange-line"></div>
@@ -75,8 +92,6 @@ function Navigation({ isLoaded }) {
 				<div className="green-line"></div>
 				<div className="blue-line"></div>
 			</div>
-			{/* {isLoaded && ( */}
-			{/* )} */}
 		</div>
 	);
 }

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,TextAreaField,IntegerField,DateField
+from wtforms import StringField,SubmitField,TextAreaField,IntegerField,DateField,FloatField
 from wtforms.validators import DataRequired,Length,URL,ValidationError
 from flask_wtf.file import FileAllowed,FileField,FileRequired
 
@@ -14,11 +14,11 @@ class MenuForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     image = StringField('Image')
     category = StringField('Category')
-    price = IntegerField('Price')
+    price = FloatField('Price')
     ingredient_name = StringField('Ingredient_name', validators=[DataRequired()])
     nutrient = StringField('Nutrient', validators=[DataRequired()])
     weight = StringField('Weight')
-    percentage = IntegerField('Percentage')
+    percentage = StringField('Percentage')
     created_at = DateField('Date')
     submit = SubmitField('Submit')
 

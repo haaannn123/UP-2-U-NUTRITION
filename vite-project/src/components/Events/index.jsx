@@ -4,7 +4,9 @@ import { getAllEventsThunk } from '../../store/events';
 import OpenModalButton from '../OpenModalButton';
 import { EventsModal } from './events';
 import { RequestEventModal } from './requestEvents';
+import { AddEvent } from './addEvent';
 import './Events.css'
+
 
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -144,8 +146,8 @@ const Events = () => {
           <OpenModalButton
             buttonText={user ? ("Add Event"): ('Request Event')}
             className="green-btn request-event-btn"
-            onItemClick=''
-            modalComponent={<RequestEventModal />}
+            onItemClick=""
+            modalComponent={user ? <AddEvent/> : <RequestEventModal />}
           />
           {/* <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium green">Request Event</button> */}
         </div>

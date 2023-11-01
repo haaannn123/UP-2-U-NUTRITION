@@ -22,8 +22,7 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     } else {
-      closeModal();
-      navigate('/our-story');
+      navigate('/');
     }
   };
 
@@ -34,7 +33,11 @@ function LoginFormPage() {
 
   return (
     <>
-      <div className="flex h-full flex-1 flex-col justify-center px-3 py-9 lg:px-8">
+    {user ? (
+      <button onClick={handleLogout}>Logout</button>
+    ): (
+      <div className="login-container">
+      <div className="login-box flex flex-1 flex-col justify-center px-3 py-9 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-extrabold leading-9 tracking-tight text-gray-900">
             Sign in to your account
@@ -42,7 +45,7 @@ function LoginFormPage() {
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         {errors.map((error, idx) => (
-            <li className="text-red-500"key={idx}>{error}</li>
+            <p className="text-red-500"key={idx}>{error}</p>
           ))}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -96,6 +99,9 @@ function LoginFormPage() {
           </p>
         </div>
       </div>
+      </div>
+      )}
+      
     </>
   );
 }

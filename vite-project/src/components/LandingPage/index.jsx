@@ -1,10 +1,11 @@
 import './LandingPage.css'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../Footer';
+import { useSelector } from 'react-redux';
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
+    const user = useSelector(state => state.session.user)
     const dailySpecials = [
         'Sunday Special',
         'Monday Special',
@@ -29,7 +30,11 @@ const LandingPage = () => {
                             <div className="green-line-order">
                                 <div className="start-order">
                                     <div className='daily-specials'>{displaySpecials(dailySpecials)}</div>
-                                    <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
+                                    {user ? (
+                                        <button onClick={() => navigate("/menu")} className="landing-page-button">START ORDER</button>
+                                    ): (
+                                        <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,6 @@
     cursor: pointer;
     margin-right: .5rem;
     border-radius: 10px;
-    height: 100%
 }
 
 .card-content-front {
@@ -49,8 +48,10 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
-    padding: 2.8rem;
+    height: 420px;
+    overflow-y: scroll;
+    padding-top: 7rem;
+    gap: 1rem;
 }
 
 .product-name-back {
@@ -60,4 +61,9 @@
     font-size: 35px;
     letter-spacing: 0.88px;
     z-index: 2;
+}
+
+.menu-items-sub-cat {
+    font-weight: bold;
+    font-size: 20px;
 }

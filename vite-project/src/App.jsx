@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import EditEvents from "./components/Events/editEvent";
 import LoginFormPage from "./components/LoginFormPage";
 import EditItem from "./components/MenuPage/utility/forms/EditItem";
+import { AddEvent } from "./components/Events/addEvent";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,7 @@ function App() {
         <Route path="/menu/:id/edit/" element={<EditItem />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/our-story" element={<OurStory />} />
+        <Route path="/events/add-event" element={<AddEvent />} />
         <Route path="/events/edit/:id" element={<EditEvents />} />
         <Route path="/events" element={<Events />} />
         <Route path="/your-story" element={<RedirectYourStory url={externalUrl} splashPageUrl='/' />} />

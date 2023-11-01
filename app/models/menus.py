@@ -78,7 +78,7 @@ class Nutrition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nutrient = db.Column(db.String(5000), nullable=False)
     weight = db.Column(db.String())
-    percentage = db.Column(db.Integer())
+    percentage = db.Column(db.String())
 
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 

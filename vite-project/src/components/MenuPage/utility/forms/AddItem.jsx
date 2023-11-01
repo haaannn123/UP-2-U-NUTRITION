@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { menuCategories } from "../menu/menu-categories";
 import { useDispatch, useSelector } from "react-redux";
 import { createMenuItemThunk } from "../../../../store/menus";
+import { useNavigate } from "react-router-dom";
 
 
 export function AddItem() {
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   // const user = useSelector(state => state.session.user)
 
   const [name, setName] = useState("");
@@ -23,29 +23,47 @@ export function AddItem() {
   const [nutrient, setNutrient] = useState("")
   const [weight, setWeight] = useState("")
   const [percentage, setPercentage] = useState("")
-  const [selectedNutrient, setSelectedNutrient] = useState('');
   const [nutrientEntries, setNutrientEntries] = useState([{ nutrient: '', weight: '', percentage: '' }]);
 
-  const handleNutrientChange = (e) => {
-    setSelectedNutrient(e.target.value);
-    // Clear weight and percentage when the nutrient changes
-    setWeight('');
-    setPercentage('');
+  // const handleNutrientChange = (e) => {
+  //   setNutrient(e.target.value);
+  //   // Clear weight and percentage when the nutrient changes
+  //   setWeight('');
+  //   setPercentage('');
+  // };
+
+  const addNutrientEntry = () => {
+    setNutrientEntries([...nutrientEntries, { nutrient: '', weight: '', percentage: '' }]);
   };
 
+  const removeNutrientEntry = (index) => {
+    const updatedEntries = [...nutrientEntries];
+    updatedEntries.splice(index, 1);
+    setNutrientEntries(updatedEntries);
+  };
+
+  const handleNutrientChange = (e, index) => {
+    const updatedEntries = [...nutrientEntries];
+    updatedEntries[index].nutrient = e.target.value;
+    setNutrientEntries(updatedEntries);
+  };
+
+  const handleWeightChange = (e, index) => {
+    const updatedEntries = [...nutrientEntries];
+    updatedEntries[index].weight = e.target.value;
+    setNutrientEntries(updatedEntries);
+  };
+
+  const handlePercentageChange = (e, index) => {
+    const updatedEntries = [...nutrientEntries];
+    updatedEntries[index].percentage = e.target.value;
+    setNutrientEntries(updatedEntries);
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    setErrors([]);
-    // const newMenuItem = {
-    //   name,
-    //   category,
-    //   file,
-    //   ingredients,
-    //   nutrition,
-    //   price,
-    // };
+
 
     const newMenuItem = new FormData()
     newMenuItem.append("name", name)
@@ -53,17 +71,32 @@ export function AddItem() {
     newMenuItem.append('category', category)
     newMenuItem.append('price', price)
     newMenuItem.append('ingredient_name', currentIngredients)
-    newMenuItem.append('nutrient', nutrient)
-    newMenuItem.append('weight', weight)
-    newMenuItem.append('percentage', percentage)
 
 
 
-    //make database call here
-    //handle errors here
+    const nutrientArray = [];
+    const weightArray = [];
+    const percentageArray = [];
+
+    nutrientEntries.forEach((entry) => {
+      nutrientArray.push(entry.nutrient);
+      weightArray.push(entry.weight);
+      percentageArray.push(entry.percentage);
+    });
+
+    // console.log("================ nutrient", nutrientArray)
+    // console.log("================ weight", weightArray)
+    console.log("================ percentage", percentageArray)
+
+    newMenuItem.append(`nutrient`, nutrientArray);
+    newMenuItem.append(`weight`, weightArray);
+    newMenuItem.append(`percentage`, percentageArray);
+
+
+
     if (!errors.length) {
       const data = await dispatch(createMenuItemThunk(newMenuItem))
-
+      navigate("/menu")
     }
   }
 
@@ -131,53 +164,40 @@ export function AddItem() {
           </label>
         </div>
         <div className="txt_field">
-          {/* <label>
-            <div>Nutrition <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-            <input
-              id="routine-description"
-              placeholder="Nutrition..."
-              type="text"
-              value={nutrient}
-              onChange={(e) => setNutrient(e.target.value)}
-            ></input>
-          </label> */}
           <label>
-            <div>Nutrient <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-            <select value={selectedNutrient} onChange={handleNutrientChange}>
-              <option value="">Select Nutrient</option>
-              <option value="Fat">Fat</option>
-              <option value="Carb">Carb</option>
-              <option value="Protein">Protein</option>
-            </select>
+            <div>Nutrient Fields</div>
+            {nutrientEntries.map((entry, index) => (
+              <div key={index}>
+                <select value={entry.nutrient} onChange={(e) => handleNutrientChange(e, index)}>
+                  <option value="">Select Nutrient</option>
+                  <option value="Fat">Fat</option>
+                  <option value="Carb">Carb</option>
+                  <option value="Protein">Protein</option>
+                </select>
+                {entry.nutrient && (
+                  <div>
+                    <input
+                      id="routine-description"
+                      placeholder="Weight..."
+                      type="text"
+                      value={entry.weight}
+                      onChange={(e) => handleWeightChange(e, index)}
+                    />
+                    <input
+                      id="routine-description"
+                      placeholder="Percentage..."
+                      type="text" // Change to type "number" for integer input
+                      value={entry.percentage}
+                      onChange={(e) => handlePercentageChange(e, index)}
+                    />
+                  </div>
+                )}
+                <button type="button" onClick={() => removeNutrientEntry(index)}>Remove</button>
+              </div>
+            ))}
+            <button type="button" onClick={addNutrientEntry}>Add Nutrient Field</button>
           </label>
         </div>
-        {selectedNutrient && (<div>
-          <div className="txt_field">
-            <label>
-              <div>Weight <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-              <input
-                id="routine-description"
-                placeholder="Weight..."
-                type="text"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-              ></input>
-            </label>
-          </div>
-          <div className="txt_field">
-            <label>
-              <div>Percentage <span className="required-field" style={{ color: "red", fontSize: "0.7rem" }}>*</span></div>
-              <input
-                id="routine-description"
-                placeholder="Percentage..."
-                type="text"
-                value={percentage}
-                onChange={(e) => setPercentage(e.target.value)}
-              ></input>
-            </label>
-          </div>
-
-        </div>)}
         <button type="submit">Submit</button>
       </form>
     </div>

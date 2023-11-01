@@ -39,7 +39,7 @@ def single_menu_item(id):
 @menu_item_routes.route("", methods=["POST"])
 @login_required
 def create_menu_item():
-    # print("============== hitting", request.cookies)
+
     form = MenuForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate_on_submit():
@@ -63,16 +63,26 @@ def create_menu_item():
             db.session.add(ingredient)
             db.session.commit()
 
+        nutrient_list = form.data['nutrient'].split(",")
+        weight_list = form.data['weight'].split(",")
+        percentage_list = form.data['percentage'].split(",")
 
-        new_nutrition = Nutrition(
-            nutrient = form.data['nutrient'],
-            weight = form.data['weight'],
-            percentage = form.data['percentage'],
-            menu_id = new_menu_item.id
-        )
 
-        db.session.add(new_nutrition)
-        db.session.commit()
+
+        for i in range(len(nutrient_list)):
+            nutrient = nutrient_list[i]
+            weight = weight_list[i]
+            percentage = percentage_list[i]
+
+            new_nutrition = Nutrition(
+                nutrient = nutrient,
+                weight = weight,
+                percentage = percentage,
+                menu_id = new_menu_item.id
+            )
+
+            db.session.add(new_nutrition)
+            db.session.commit()
 
         return {"resMenuItem":new_menu_item.to_dict()}
 
@@ -100,7 +110,7 @@ def create_ingredient(id):
         return {"errors":validation_errors_to_error_messages(ingredient_form.errors)}, 400
 
 
-@menu_item_routes.route("<int:id>/nutritions", methods=["POST"])
+@menu_item_routes.route("/<int:id>/nutritions", methods=["POST"])
 # @login_required
 def create_nutrition(id):
     nutrition_form = NutritionForm()
@@ -121,67 +131,78 @@ def create_nutrition(id):
     if nutrition_form.errors:
         return {"errors":validation_errors_to_error_messages(nutrition_form.errors)}, 400
 
-@menu_item_routes.route("<int:id>/update", methods=["PUT"])
-# @login_required
+@menu_item_routes.route("/<int:id>/update", methods=["PUT"])
+@login_required
 def update_menu_item(id):
     menu_item_form = MenuForm()
+
     menu_item_form["csrf_token"].data = request.cookies["csrf_token"]
 
     if menu_item_form.validate_on_submit():
         menu_item = MenuItem.query.get(id)
 
-        menu_item.name = menu_item_form['name']
-        menu_item.category = menu_item_form['category']
-        menu_item.price = menu_item_form['price']
-        menu_item.image = menu_item_form['image']
+
+
+        menu_item.name = menu_item_form.data['name']
+        menu_item.category = menu_item_form.data['category']
+        menu_item.price = menu_item_form.data['price']
+        menu_item.image = menu_item_form.data['image']
         menu_item.created_at = date.today()
 
         db.session.commit()
 
-    ingredient = Ingredient.query.filter_by(menu_id = id).first()
-    # print("===========",ingredient.to_dict())
+        ingredients = menu_item_form.data['ingredient_name'].split(",")
 
-    if ingredient:
-        ingredient.ingredient_name = menu_item_form.data['ingredient_name']
+        for ingredient_name in ingredients:
+            existing_ingredient = Ingredient.query.filter_by(menu_id=id, ingredient_name=ingredient_name).first()
+
+            if existing_ingredient:
+                # Update existing ingredient
+                existing_ingredient.ingredient_name = ingredient_name
+            else:
+                # Create a new ingredient
+                new_ingredient = Ingredient(
+                    ingredient_name=ingredient_name,
+                    menu_id=id
+                )
+                db.session.add(new_ingredient)
 
         db.session.commit()
+
+        # Handle nutrition updates
+        nutrients = menu_item_form.data['nutrient'].split(",")
+        weights = menu_item_form.data['weight'].split(",")
+        percentages = menu_item_form.data['percentage'].split(",")
+
+        existing_nutrients = Nutrition.query.filter_by(menu_id=id).all()
+
+        for i, nutrient_name in enumerate(nutrients):
+            if i < len(existing_nutrients):
+                # Update existing nutrition
+                existing_nutrient = existing_nutrients[i]
+                existing_nutrient.nutrient = nutrient_name
+                existing_nutrient.weight = weights[i]
+                existing_nutrient.percentage = percentages[i]
+            else:
+                # Create new nutrition
+                new_nutrition = Nutrition(
+                    nutrient=nutrient_name,
+                    weight=weights[i],
+                    percentage=percentages[i],
+                    menu_id=id
+                )
+                db.session.add(new_nutrition)
+
+        db.session.commit()
+
         return {"resMenuItem": menu_item.to_dict()}
 
-    if ingredient is None:
-        new_ingredient = Ingredient(
-            ingredient_name = menu_item_form.data['ingredient_name']
-        )
-
-        db.session.add(new_ingredient)
-        db.session.commit()
-        return {"resMenuItem":menu_item.to_dict()}
-
-    nutrition = Nutrition.query.filter_by(menu_id = id).first()
-
-    if nutrition:
-        nutrition.nutrient = menu_item_form.data['nutrient']
-        nutrition.weight = menu_item_form.data['weight']
-        nutrition.percentage = menu_item_form.data['percentage']
-
-        db.session.commit()
-        return {"resMenuItem":menu_item.to_dict()}
-
-    if nutrition is None:
-        new_nutrition = Nutrition(
-            nutrient = menu_item_form.data['nutrient'],
-            weight = menu_item_form.data['weight'],
-            percentage = menu_item_form.data['percentage']
-        )
-
-        db.session.add(new_nutrition)
-        db.session.commit()
-        return {"resMenuItem":menu_item.to_dict()}
-
     if menu_item_form.errors:
+        print("============ error", menu_item_form.errors)
         return {"errors": validation_errors_to_error_messages(menu_item_form.errors)}, 400
 
-@menu_item_routes.route("<int:id>/delete", methods=['DELETE'])
-# @login_required
+@menu_item_routes.route("/<int:id>/delete", methods=['DELETE'])
+@login_required
 def delete_menu_item(id):
     menu_item = MenuItem.query.get(id)
 

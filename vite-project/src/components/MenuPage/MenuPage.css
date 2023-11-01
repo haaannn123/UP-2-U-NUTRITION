@@ -41,15 +41,14 @@
 }
 
 
-/*************index.jsx**********/
+/**index.jsx**/
 
 .menu-item-container {
     display: flex;
-    overflow: hidden;
     justify-content: center;
     align-items: center;
-    width: 100%;
     height: 100%;
+    width: 100%;
 }
 
 .add-to-cart-btn {
@@ -60,8 +59,6 @@
 
 
 .menu-prev-next-btn {
-    /* background-color: white; */
-    /* border: none; */
     font-size: 100px;
     height: 100px;
     margin: auto;
@@ -74,3 +71,5 @@
     height: 100px;
     margin: auto;
 }
+
+
