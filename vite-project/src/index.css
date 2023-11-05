@@ -2,12 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'League Spartan', sans-serif;
+    background-color: rgb(240, 240, 240);
+}
+
 .headers {
     font-weight: bold;
     font-size: 56px;
-    color: #000000;
+}
+
+.bg-titles-blue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: rgba(0, 145, 209, 1);
+}
+
+.bg-titles-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 8px 35px 0;
+    /* margin-top: 10%; */
+    margin-bottom: 2%;
+    background-color: #FFAD01;
+}
+
+.bg-titles-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: #5EAA00;
+}
+
+.bg-titles-red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 8px 35px 0;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    background-color: #D32540;
 }
 
 button {
     cursor: pointer;
+}
+
+.green-btn {
+    background-color: #5EAA00;
+    border: solid 1px #5EAA00;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.green-btn:hover {
+    color: #5EAA00;
+    background-color: #FFFFFF;
+}
+
+.blue-btn {
+    background-color: rgba(0, 145, 209, 1);
+    border: solid 1px rgba(0, 145, 209, 1);
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: -10px;
+}
+
+.blue-btn:hover {
+    color: rgba(0, 145, 209, 1);
+    background-color: #FFFFFF;
+}
+
+.red-btn {
+    background-color: #D32540;
+    border: solid 1px #D32540;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.red-btn:hover {
+    color: #D32540;
+    background-color: #FFFFFF;
+}
+
+.red-btn-add {
+    background-color: #D32540;
+    border: solid 1px #D32540;
+    border-radius: 2px;
+    margin-top: 5px;
+    color: white;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+}
+
+.red-btn-add:hover {
+    color: #D32540;
+    background-color: #FFFFFF;
+}
+
+.green-btn-add {
+    background-color: #5EAA00;
+    border: solid 1px #5EAA00;
+    border-radius: 2px;
+    margin-top: 5px;
+    color: white;
+    margin-top: 5px;
+    padding: 2px 7px;
+}
+
+.green-btn-add:hover {
+    color: #5EAA00;
+    background-color: #FFFFFF;
+}
+
+.blue-btn-add {
+    background-color: rgba(0, 145, 209, 1);
+    border: solid 1px rgba(0, 145, 209, 1);
+    border-radius: 2px;
+    margin-top: 5px;
+    color: white;
+    margin-top: 5px;
+    padding: 2px 7px;
+    /* margin-bottom: 10%; */
+}
+
+.blue-btn-add:hover {
+    color: rgba(0, 145, 209, 1);
+    background-color: #FFFFFF;
 }

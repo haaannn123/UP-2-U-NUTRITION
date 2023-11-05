@@ -1,3 +1,7 @@
+.nav-bar {
+  background-color: white;
+}
+
 .profile-dropdown {
   position: absolute;
 }
@@ -28,7 +32,7 @@
   justify-content: center;
 }
 
-.logo2 {
+.icons-nav-bar {
   /* border: 1px solid blue; */
   display: flex;
   align-items: center;

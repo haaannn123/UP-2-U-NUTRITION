@@ -18,6 +18,7 @@ export const authenticate = () => async (dispatch) => {
 		headers: {
 			"Content-Type": "application/json",
 		},
+		// credentials: 'include',  // <-- Add this line
 	});
 	if (response.ok) {
 		const data = await response.json();
@@ -39,6 +40,7 @@ export const login = (email, password) => async (dispatch) => {
 			email,
 			password,
 		}),
+		// credentials: 'include',  // <-- Add this line
 	});
 
 	if (response.ok) {
@@ -60,6 +62,7 @@ export const logout = () => async (dispatch) => {
 		headers: {
 			"Content-Type": "application/json",
 		},
+		credentials: 'include',  // <-- Add this line
 	});
 
 	if (response.ok) {
@@ -67,16 +70,19 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (email, first_name, last_name, phone_number, password) => async (dispatch) => {
+	// console.log('email', email, 'password:', password)
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			username,
 			email,
-			password,
+			first_name,
+			last_name,
+			phone_number,
+			password
 		}),
 	});
 

@@ -1,0 +1,31 @@
+.hide-svg>svg {
+    display: none;
+}
+
+.pointer-events-none>svg {
+    /* border: 1px solid red; */
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.add-item-form {
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: center;
+    margin-top: 5%;
+    padding-bottom: 15%;
+}
+
+.edit-item-form {
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: center;
+    margin-top: 5%;
+    padding-bottom: 15%;
+    width: 500px;
+}
+
+#form-title {
+    font-size: x-large;
+    margin-bottom: 2%;
+}

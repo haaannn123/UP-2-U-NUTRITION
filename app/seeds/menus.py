@@ -1,87 +1,56 @@
-from app.models import MenuItem,Ingredient,Nutrition, db, SCHEMA,environment
+from app.models import MenuItem, Ingredient,Nutrition, db, SCHEMA,environment
 from sqlalchemy.sql import text
 from datetime import datetime
 
-def seed_menus():
-    menu_item1 = MenuItem(
-        name = "Strawberry Cheesecake",
-        price = 17.99,
-        image = "https://i.imgur.com/OJbcnTl.jpg",
-        category = 'supah shakes',
-        created_at = datetime.now()
-    )
-
-    ingredient_item1 = Ingredient(
-        name = "Graham Cracker Crumbs",
-        menu_id = 1
-    )
-    ingredient_item2 = Ingredient(
-        name = "Strawberry Ice Cream",
-        menu_id = 1
-    )
-
-    nutrition_item1 = Nutrition(
-        nutrient = "Fat",
-        menu_id = 1,
-        weight = "10mg",
-        percentage = 5
-    )
-
-    nutrition_item2 = Nutrition(
-        nutrient = "Carb",
-        menu_id = 1,
-        weight = "50mg",
-        percentage = 10
-    )
 
 
-    menu_item1.ingredients.extend([ingredient_item1,ingredient_item2])
-    menu_item1.nutritions.extend([nutrition_item1,nutrition_item2])
+# menu_data = [
+#     {
+#         'name': 'Strawberry Cheesecake',
+#         'price': 12.48,
+#         'image': 'https://i.imgur.com/OJbcnTl.jpg',
+#         'category': 'supah shakes',
+#         'ingredients': ["Cookies and cream", "Vanilla Protein", "Unflavored Fiber", "Sugar Free Chocolate Syrup", "Crumbled Oreos"],
+#         'nutrients': ["Calories","Fat", "Carb", "Fiber","Protein", "Vitamins & Minerals"],
+#         'weights': ["265", "5g", "24g", "10g","32g","21"]
+#     },
 
-    menu_item2 = MenuItem(
-        name = "Chocolate Cheesecake",
-        price = 15.99,
-        image = "https://i.imgur.com/OJbcnTl.jpg",
-        category = 'combos',
-        created_at = datetime.now()
-    )
+# ]
 
-    ingredient_item3 = Ingredient(
-        name = "Cream Cheese",
-        menu_id = 2
-    )
+def seed_menus(menu_data):
+    menuitems = []
 
-    ingredient_item4 = Ingredient(
-        name = "Blue Cheese",
-        menu_id = 2
-    )
+    for data in menu_data:
+        menu_item = MenuItem(
+            name=data['name'],
+            price=data['price'],
+            image=data['image'],
+            category=data['category'],
+            created_at=datetime.now()
+        )
 
-    nutrition_item3 = Nutrition(
-        nutrient = "Fat",
-        menu_id = 2,
-        weight = "15mg",
-        percentage = 5
-    )
+        for ingredient_name in data['ingredients']:
+            ingredient = Ingredient(ingredient_name=ingredient_name)
+            menu_item.ingredients.append(ingredient)
 
-    nutrition_item4 = Nutrition(
-        nutrient = "Carb",
-        menu_id = 2,
-        weight = "550mg",
-        percentage = 10
-    )
+        if 'nutrients' in data:  # Check if 'nutrients' key exists
+            for i in range(len(data['nutrients'])):
+                nutrient = Nutrition(
+                    nutrient=data['nutrients'][i],
+                    weight=data['weights'][i]
+                )
+                menu_item.nutritions.append(nutrient)
 
-    menu_item2.ingredients.extend([ingredient_item3,ingredient_item4])
-    menu_item2.nutritions.extend([nutrition_item3,nutrition_item4])
+        menuitems.append(menu_item)
 
-
-    menuitems = [menu_item1,menu_item2]
-
-    [db.session.add(menu_item) for menu_item in menuitems]
+    db.session.add_all(menuitems)
     db.session.commit()
+
 
 def undo_menus():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.menu_items RESTART IDENTITY CASCADE;")
+
     else:
         db.session.execute(text("DELETE FROM menu_items"))
 

@@ -11,7 +11,7 @@ import { Modal, ModalProvider } from './context/Modal.jsx'
 
 const store = configureStore();
 
-if (process.env.NODE_ENV !== "production") {
+if (import.meta.env.NODE_ENV !== "production") {
   window.store = store;
   window.sessionActions = sessionActions;
 }

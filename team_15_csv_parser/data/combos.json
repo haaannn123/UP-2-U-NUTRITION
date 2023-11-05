@@ -1,0 +1,36 @@
+{
+    "COMBOS": [
+        {
+            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Basic Shake",
+            "COMBOS": "Trusty Basic"
+        },
+        {
+            "WHAT DOES IT HAVE?": "SpecialTea + Basic Shake",
+            "COMBOS": "VIP"
+        },
+        {
+            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Supah Shake",
+            "COMBOS": "Supah Basic"
+        },
+        {
+            "WHAT DOES IT HAVE?": "SpecialTea + Supah Shake",
+            "COMBOS": "Supah Special"
+        },
+        {
+            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Protein Waffles",
+            "COMBOS": "Waffle Basic"
+        },
+        {
+            "WHAT DOES IT HAVE?": "SpecialTea + Protein Waffles",
+            "COMBOS": "Waffle Special"
+        },
+        {
+            "WHAT DOES IT HAVE?": "Basic Aloe + Basic Tea + Protein Bowl",
+            "COMBOS": "Protein Bowl Basic"
+        },
+        {
+            "WHAT DOES IT HAVE?": "SpecialTea + Protein Bowl",
+            "COMBOS": "Protein Bowl Special"
+        }
+    ]
+}

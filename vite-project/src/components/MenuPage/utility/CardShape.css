@@ -1,25 +1,29 @@
-.front-card {
-    /* background: rgb(255, 255, 255); */
+.outside-each-card {
+    width: 100%;
 }
 
-.back-card {
-    background: rgba(211, 211, 211, 1);
+
+.group-view .outside-each-card {
+    width: 50%;
 }
+
+
 
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-
-    height: 420px;
-    width: 250px;
-
-    border: 1px solid rgba(196, 196, 196, 1);
-    border-radius: 10px;
-    box-shadow: 7.78px 7.78px 6.48px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    position: relative;
+    margin-right: .5rem;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-body:hover {
+    transform: scale(1.02);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
 }
 
 .card-content-front {
@@ -27,30 +31,13 @@
     flex-direction: column;
     justify-content: center;
     height: 420px;
-    width: 250px;
+    /* width: 100%; */
+    background-color: white;
     align-items: center;
     position: relative;
-}
-
-.product-name-front {
-    font-weight: bold;
-    width: 200px;
-    position: absolute;
-    margin: auto;
-    font-size: 35px;
-    letter-spacing: 0.88px;
-}
-
-.product-image {
-    width: 320px;
-    position: relative;
     z-index: -1;
-}
-
-.product-price {
-    font-size: 20px;
-    position: absolute;
-    margin-bottom: -350px;
+    border-radius: 10px;
+    /* border: 1px solid yellow; */
 }
 
 .card-content-back {
@@ -58,7 +45,44 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    position: relative;
+    height: 420px;
+    width: 100%;
+    overflow-y: scroll;
+    padding-top: 7rem;
+    gap: 1rem;
+    border-radius: 10px;
+    /* border: 1px solid red; */
 }
+
+#trash-icon {
+    position: absolute;
+    top: 0;
+    right: 7px;
+}
+
+.product-name-front {
+    font-weight: bold;
+    width: 200px;
+    position: absolute;
+    font-size: 35px;
+    letter-spacing: 0.88px;
+    z-index: 1;
+}
+
+.product-image {
+    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.product-price {
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
 
 .product-name-back {
     text-align: center;
@@ -67,4 +91,9 @@
     font-size: 35px;
     letter-spacing: 0.88px;
     z-index: 2;
+}
+
+.menu-items-sub-cat {
+    font-weight: bold;
+    font-size: 20px;
 }

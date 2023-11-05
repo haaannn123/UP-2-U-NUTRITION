@@ -14,25 +14,11 @@ class MenuItem(db.Model):
     name = db.Column(db.String(5000), nullable=False)
     category = db.Column(db.String(),nullable=False)
     price = db.Column(db.Float(), nullable=False)
-    image = db.Column(db.String(), nullable=False)
+    image = db.Column(db.String(), nullable=True)
     created_at = db.Column(db.Date(), nullable=False)
 
-    # user = db.relationship('User', back_populates = 'menus')
-
-    # one to many relationship for ingredients
-
-    ingredients = db.relationship(
-        'Ingredient',
-        back_populates='menu_item',
-        cascade = 'all, delete-orphan'
-    )
-
-    nutritions = db.relationship(
-        'Nutrition',
-        back_populates='menu_item',
-        cascade = 'all, delete-orphan'
-    )
-
+    ingredients = db.relationship('Ingredient',back_populates='menu_item',cascade = 'all, delete-orphan')
+    nutritions = db.relationship('Nutrition',back_populates='menu_item', cascade = 'all, delete-orphan')
 
     def __repr__(self):
         return f'<MenuItem {self.id}, {self.name}, created Menu item #{self.id}'
@@ -53,30 +39,36 @@ class MenuItem(db.Model):
 class Ingredient(db.Model):
     __tablename__= 'ingredients'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(5000),nullable=False)
+    ingredient_name = db.Column(db.String(5000),nullable=True)
 
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
     def __repr__(self):
-        return f'<Ingredient {self.id}, {self.name} was created>'
+        return f'<Ingredient {self.id}, {self.ingredient_name} was created>'
 
     def to_dict(self):
         return {
-            'name':self.name
+            'id':self.id,
+            'ingredient_name':self.ingredient_name,
+            'menu_id':self.menu_id
         }
 
     menu_item = db.relationship('MenuItem', back_populates='ingredients')
 
 
-
 class Nutrition(db.Model):
     __tablename__ = 'nutritions'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    nutrient = db.Column(db.String(5000), nullable=False)
+    nutrient = db.Column(db.String(5000), nullable=True)
     weight = db.Column(db.String())
-    percentage = db.Column(db.Integer())
 
     menu_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('menu_items.id')), nullable=True)
 
@@ -87,9 +79,11 @@ class Nutrition(db.Model):
 
     def to_dict(self):
         return {
+            'id':self.id,
             'nutrient':self.nutrient,
             'weight':self.weight,
-            'percentage':self.percentage
+            'menu_id':self.menu_id
         }
+    
 
     menu_item = db.relationship('MenuItem', back_populates='nutritions')

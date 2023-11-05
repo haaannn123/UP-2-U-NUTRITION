@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import './YourStory.css'
-
-const YourStory = () => {
+import { useEffect } from "react";
 
 
 
-    return (
-        <div>Your Story</div>
-    )
+const YourStory = ({ url }) => {
+
+    useEffect(() => {
+        window.location.href = url;
+    }, [url]);
+
+    return <h5>Redirecting...</h5>;
+
 }
 
 

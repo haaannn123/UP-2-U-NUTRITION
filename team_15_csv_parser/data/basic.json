@@ -1,0 +1,20 @@
+{
+    "BASICS": [
+        {
+            "NUTRITIONAL FACTS": "200 calories, 4g fat, 18g carbs, 3g fiber, 24g protein",
+            "BASICS": "Shake Flavor + Protein"
+        },
+        {
+            "NUTRITIONAL FACTS": "0 to 5 calories",
+            "BASICS": "Aloe"
+        },
+        {
+            "NUTRITIONAL FACTS": "5 calories, 0-25-40-85mg caffeine",
+            "BASICS": "Tea"
+        },
+        {
+            "NUTRITIONAL FACTS": "25 calories, 7g carbs, 0 sugar, 180mg caffeine",
+            "BASICS": "SpecialTeas"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+.your-story-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.coaching-title {
+    width: 350px;
+    height: 70px;
+}
+
+.coaching-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    width: 730px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+.coaching-form-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.coaching-bar {
+    width: 730px;
+    height: 15px;
+}
+
+.coaching-yellow-bar {
+    background-color: #FFAD01;
+    margin-bottom: 30px;
+}
+
+.coaching-btn {
+    margin: 15px 50px;
+    width: 140px;
+    height: 40px;
+}
+
+.yourstory-page-bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+}
+

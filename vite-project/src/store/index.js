@@ -4,17 +4,19 @@ import session from './session'
 import eventReducer from './events';
 import logger from 'redux-logger'
 import menuReducer from './menus';
+import cartReducer from './cart';
 
 const rootReducer = combineReducers({
   session,
   eventReducer,
-  menuReducer
+  menuReducer,
+  cartReducer
 });
 
 
 let enhancer;
 
-if (process.env.NODE_ENV === 'production') {
+if (import.meta.env.NODE_ENV === 'production') {
   enhancer = applyMiddleware(thunk);
 } else {
   // const logger = import('redux-logger').default;

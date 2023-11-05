@@ -1,51 +1,29 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import { getAllEventsThunk } from '../../store/events';
+import OpenModalButton from '../OpenModalButton';
+import { EventsModal } from './events';
+import { RequestEventModal } from './requestEvents';
+import { AddEvent } from './addEvent';
+import './Events.css'
+
 
 const Events = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const user = useSelector(state => state.session.user)
   const eventArr = useSelector(state => state.eventReducer)
-
-  // console.log("this is event arr", eventArr)
-  const event1 = Object.values(eventArr)
-  // console.log("this is event1", event1)
-
-
-  // let new_event = event1
-  // const eventsForCurrentMonth = new_event.filter((event) => {
-  //   const eventDate = new Date(event.date);
-  //   return (
-  //     eventDate.getMonth() === currentMonth.getMonth() &&
-  //     eventDate.getFullYear() === currentMonth.getFullYear()
-  //   );
-  // });
-
-
+  const event1 = Object.values(eventArr);
 
   useEffect(() => {
     dispatch(getAllEventsThunk())
   }, [dispatch])
 
-
-
   if (!eventArr) return
 
-  const events = [
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 5),
-      title: 'Latinos in the US - Networking',
-      details: 'Lorem Ipsum'
-    },
-    {
-      date: new Date(currentMonth.getFullYear(), 10, 15),
-      title: 'Event 2',
-      details: 'Lorem Ipsom lskdjfalsdkjf '
-    },
-  ];
-
-
-  // console.log("this is date", events[0].date)
 
   const daysInMonth = new Date(
     currentMonth.getFullYear(),
@@ -94,36 +72,31 @@ const Events = () => {
     ).getDay();
 
     const dayElements = [];
-
-
-
-    // console.log("this is event slice", event1)
-    // if (!Array.isArray(eventArr)) throw new Error('eventArr is not an array')
     const eventsForCurrentMonth = event1.filter((event) => {
-      const eventDate = new Date(event.date);
-      // console.log("this is event date", eventDate)
+
+      const eventDate = new Date(event.start_date);
+      const enventDateHours = eventDate.getHours()
+      eventDate.setHours(+enventDateHours + 4)
       return (
         eventDate.getMonth() === currentMonth.getMonth() &&
         eventDate.getFullYear() === currentMonth.getFullYear()
       );
     });
 
-    // console.log("this is events for current month", eventsForCurrentMonth[0].date)
-
-
     for (let i = 0; i < firstDayOfMonth; i++) {
       dayElements.push(<td key={`empty-${i}`} className='border'></td>)
     }
-
 
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
 
       const eventsForDay = eventsForCurrentMonth.filter((event) => {
-        const eventDate = new Date(event.date);
+        const eventDate = new Date(event.start_date);
+        const enventDateHours = eventDate.getHours()
+        eventDate.setHours(+enventDateHours + 4)
         const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-        const formattedEventDate = eventDate.toLocaleDateString('en-US', options);
-        const formattedCurrentDate = currentDate.toLocaleDateString('en-US', options);
+        const formattedEventDate = eventDate.toDateString('en-US', options);
+        const formattedCurrentDate = currentDate.toDateString('en-US', options);
         return formattedEventDate === formattedCurrentDate;
       });
 
@@ -136,7 +109,15 @@ const Events = () => {
             <div className="top h-5 w-full flex flex-col">
               <span className="text-gray-500">{day}</span>
               {eventsForDay.map((event, index) => (
-                <span key={index} className="rounded-sm p-1 text-sm mb-1text-sm text-white bg-red-600 cursor-pointer">{event.title}</span>
+                <div key={index} className="">
+                  <OpenModalButton
+                    style={{ backgroundColor: `${event.color}` }}
+                    buttonText={event.title}
+                    className="rounded-sm p-1 text-sm mb-1text-sm text-white cursor-pointer w-full flex"
+                    onItemClick=''
+                    modalComponent={<EventsModal event={event} />}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -164,15 +145,30 @@ const Events = () => {
   };
 
 
-  // useEffect(() => {
-  //   dispatch(getAllEventsThunk())
-  // }, [dispatch])
-
   return (
     <>
       <div className="relative w-full h-24">
-        <h1 className="font-bold text-5xl mt-10 text-center pb-0">EVENTS</h1>
-        <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-white-700">Request Event</button>
+      <div className="events-request-modal">
+        <div className="headers">EVENTS</div>
+        <div className='request-event-btn-container'>
+          {
+          user ?
+          <button
+          onClick = {() => navigate('/events/add-event')}
+          className='green-btn request-event-btn'
+          >
+            Add Event
+          </button>
+          :
+          <OpenModalButton
+            buttonText='Request Event'
+            className="green-btn request-event-btn"
+            onItemClick=""
+            modalComponent={<RequestEventModal />}
+          />
+          }
+          {/* <button className="absolute top-0 right-5 landing-page-button rounded-md border border-transparent bg-green-600 px-6 py-3 text-base font-medium green">Request Event</button> */}
+        </div>
       </div>
       <div className="container mx-auto mt-0">
         <div className="wrapper rounded shadow w-full">
@@ -182,14 +178,14 @@ const Events = () => {
             </span>
             <div className="buttons flex justify-between">
               <button className="p-1 " onClick={goToPreviousMonth}>
-                <svg width="1.5em" fill="gray" height="1.5em" viewBox="0 0 16 16" className="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <svg width="1.5em" fill="gray" height="1.5em" viewBox="0 0 16 16" className="bi bi-arrow-left-circle" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path fillRule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z" />
                   <path fillRule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z" />
                 </svg>
               </button>
               <button className="p-1" onClick={goToNextMonth}>
-                <svg width="1.5em" fill="gray" height="1.5em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <svg width="1.5em" fill="gray" height="1.5em" viewBox="0 0 16 16" className="bi bi-arrow-right-circle" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path fillRule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z" />
                   <path fillRule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
@@ -203,6 +199,7 @@ const Events = () => {
             </thead>
             <tbody>{renderDays()}</tbody>
           </table>
+        </div>
         </div>
       </div>
     </>

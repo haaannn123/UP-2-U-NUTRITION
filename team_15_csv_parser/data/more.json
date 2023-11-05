@@ -1,0 +1,44 @@
+{
+    "MORE-FOR-YOU": [
+        {
+            "NUTRITIONAL FACTS": "170 calories, 9g fat, 9g carbs, 15g protein",
+            "MORE-FOR-YOU": "Cafe con Leche"
+        },
+        {
+            "NUTRITIONAL FACTS": "each: 136 calories, 10g fat, 10g carbs, 3g fiber,7g protein",
+            "MORE-FOR-YOU": "Protein Donuts"
+        },
+        {
+            "NUTRITIONAL FACTS": "each: 42 calories, 1g fat, 5g carbs, 5g protein",
+            "MORE-FOR-YOU": "Protein Cake Pops"
+        },
+        {
+            "NUTRITIONAL FACTS": "272 calories, 9g fat, 18g carbs, 3g fiber, 30g protein",
+            "MORE-FOR-YOU": "Protein Churros"
+        },
+        {
+            "NUTRITIONAL FACTS": "307 calories, 7g fat, 39g carbs, 7g fiber, 25g protein ",
+            "MORE-FOR-YOU": "Acai Bowl"
+        },
+        {
+            "NUTRITIONAL FACTS": "365 calories, 6g fat, 58g carbs, 15g fiber, 30g protein ",
+            "MORE-FOR-YOU": "Monkey Bowl"
+        },
+        {
+            "NUTRITIONAL FACTS": "305 calories, 4g fat, 48g carbs, 11g fiber, 25g protein",
+            "MORE-FOR-YOU": "Tropical Fusion Bowl"
+        },
+        {
+            "NUTRITIONAL FACTS": "245 calories, 5g fat, 29g carbs, 25g protein",
+            "MORE-FOR-YOU": "Lava Shake"
+        },
+        {
+            "NUTRITIONAL FACTS": "413 calories, 11g fat, 45g carbs, 8g fiber, 35g protein",
+            "MORE-FOR-YOU": "Protein Waffles"
+        },
+        {
+            "NUTRITIONAL FACTS": "270 calories, 10g fat, 23g carbs, 24g protein",
+            "MORE-FOR-YOU": "Horchata"
+        }
+    ]
+}

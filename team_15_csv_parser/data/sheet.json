@@ -1,0 +1,362 @@
+{
+    "SUPAH SHAKE": [
+        {
+            "INGREDIENTS": "Cookies and cream, Vanilla Protein, Unflavored Fiber, Sugar Free Chocolate Syrup, Crumbled Oreos",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Oreo Explosion "
+        },
+        {
+            "INGREDIENTS": "Wild Berry, Orange Cream,Vanilla Protein, Unflavored Fiber,Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Fruity Pebbles "
+        },
+        {
+            "INGREDIENTS": "Dulce de leche, Vanilla Protein, Unflavored Fiber, Chai Tea, Caramel Sugar Free Syrup, Cinnamon Toast Crunch Cereal",
+            "NUTRITIONAL FACTS": "aprox 270 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals; ** 85mg caffeine",
+            "SUPAH SHAKE": "Churro **"
+        },
+        {
+            "INGREDIENTS": "Dulce de Leche, Vanilla Protein, Apple Fiber, Caramel Sugar Free Syrup, Cinnamon ",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Caramel Pie"
+        },
+        {
+            "INGREDIENTS": "Wild Berry, Banana Caramel, Vanilla Protein, Unflavored fiber, Chocolate Sugar Free Syrup, Granola (contains almonds)",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Banana Split"
+        },
+        {
+            "INGREDIENTS": "Dulce de Leche, Cookies and cream, Vanilla protein, Unflavored fiber, Caramel Sugar Free Syrup, Twix Powder",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Cookie Dough "
+        },
+        {
+            "INGREDIENTS": "Strawberry Cheesecake, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Graham Crackers Crumbs",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Strawberry Cheesecake"
+        },
+        {
+            "INGREDIENTS": "Dulce de Leche, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint of Caramel Macchiato Iced Protein Coffee ",
+            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "SUPAH SHAKE": "Caramel Frappe **"
+        },
+        {
+            "INGREDIENTS": "Mint Chocolate, Vanilla Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Minty Goodness"
+        },
+        {
+            "INGREDIENTS": "Pralines & Cream, Cafe Latte, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Hint House Blend Iced Protein Coffee",
+            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "SUPAH SHAKE": "Toasted Pralines Latte **"
+        },
+        {
+            "INGREDIENTS": "Pina Colada, Pralines & Cream, Vanilla Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Captain Crunch Cereal",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Captain Crunch"
+        },
+        {
+            "INGREDIENTS": "Cafe Latte, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Hint Mocha Iced Protein Coffee",
+            "NUTRITIONAL FACTS": "aprox 290 calories, 7g fat, 26g carbs, 10g fiber, 35g protein. 21 vitamins & minerals; ** 80mg caffeine",
+            "SUPAH SHAKE": "Mocha **"
+        },
+        {
+            "INGREDIENTS": "Pina Colada, Mango Pineapple, Vanilla Protein, Tropical Fiber, Honey, Hint Peach Mango Protein Juice",
+            "NUTRITIONAL FACTS": "aprox 285 calories, 6g fat, 25g carbs, 10g fiber, 35g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Mango Pina"
+        },
+        {
+            "INGREDIENTS": "Banana Caramel, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Sliced Almonds",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Banana Nut"
+        },
+        {
+            "INGREDIENTS": "Strawberry Cheesecake, Mango Pineapple, Vanilla Protein, Tropical Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Key West"
+        },
+        {
+            "INGREDIENTS": "Banana Caramel, Pumpkin Spice, Peanut Cookie Protein, Unflavored Fiber, Caramel Sugar Free Syrup, Granola (contains almonds)",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Pumpkin Banana"
+        },
+        {
+            "INGREDIENTS": "Mint Chocolate, Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Crumbled Oreos",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Thin Mint"
+        },
+        {
+            "INGREDIENTS": "Dutch Chocolate, Chocolate Protein, Unflavored Fiber, Chocolate Sugar Free Syrup, Chocolate chips",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Brownie"
+        },
+        {
+            "INGREDIENTS": "French Vanilla, Cookies and Cream, Vanilla Protein, Unflavored Fiber, Cinnamon, Whipped Cream (contains dairy)",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Vanilla Bean"
+        },
+        {
+            "INGREDIENTS": "Pina Colada, Orange Cream, Vanilla Protein, Unflavored Fiber, Strawberry Sugar Free Syrup, Fruity Pebbles Cereal",
+            "NUTRITIONAL FACTS": "aprox 265 calories, 6g fat, 24g carbs, 10g fiber, 32g protein. 21 vitamins & minerals",
+            "SUPAH SHAKE": "Rainbow"
+        },
+        {},
+        {
+            "INGREDIENTS": "NUTRITIONAL FACTS",
+            "SUPAH SHAKE": "BASICS"
+        },
+        {
+            "INGREDIENTS": "200 calories, 4g fat, 18g carbs, 3g fiber, 24g protein",
+            "SUPAH SHAKE": "Shake Flavor + Protein"
+        },
+        {
+            "INGREDIENTS": "0 to 5 calories",
+            "SUPAH SHAKE": "Aloe"
+        },
+        {
+            "INGREDIENTS": "5 calories, 0-25-40-85mg caffeine",
+            "SUPAH SHAKE": "Tea"
+        },
+        {
+            "INGREDIENTS": "25 calories, 7g carbs, 0 sugar, 180mg caffeine",
+            "SUPAH SHAKE": "SpecialTeas"
+        },
+        {},
+        {
+            "INGREDIENTS": "WHAT DOES IT HAVE?",
+            "SUPAH SHAKE": "COMBOS"
+        },
+        {
+            "INGREDIENTS": "Basic Aloe + Basic Tea + Basic Shake",
+            "SUPAH SHAKE": "Trusty Basic"
+        },
+        {
+            "INGREDIENTS": "SpecialTea + Basic Shake",
+            "SUPAH SHAKE": "VIP"
+        },
+        {
+            "INGREDIENTS": "Basic Aloe + Basic Tea + Supah Shake",
+            "SUPAH SHAKE": "Supah Basic"
+        },
+        {
+            "INGREDIENTS": "SpecialTea + Supah Shake",
+            "SUPAH SHAKE": "Supah Special"
+        },
+        {
+            "INGREDIENTS": "Basic Aloe + Basic Tea + Protein Waffles",
+            "SUPAH SHAKE": "Waffle Basic"
+        },
+        {
+            "INGREDIENTS": "SpecialTea + Protein Waffles",
+            "SUPAH SHAKE": "Waffle Special"
+        },
+        {
+            "INGREDIENTS": "Basic Aloe + Basic Tea + Protein Bowl",
+            "SUPAH SHAKE": "Protein Bowl Basic"
+        },
+        {
+            "INGREDIENTS": "SpecialTea + Protein Bowl",
+            "SUPAH SHAKE": "Protein Bowl Special"
+        },
+        {},
+        {
+            "INGREDIENTS": "NUTRITIONAL FACTS",
+            "SUPAH SHAKE": "ADD-ONS"
+        },
+        {
+            "INGREDIENTS": "15 - 30 calories, 6g soluble & insoluble fiber",
+            "SUPAH SHAKE": "Active fiber"
+        },
+        {
+            "INGREDIENTS": "0 calories",
+            "SUPAH SHAKE": "Probiotic"
+        },
+        {
+            "INGREDIENTS": "70 calories, 15g protein",
+            "SUPAH SHAKE": "Protein Juice"
+        },
+        {
+            "INGREDIENTS": "75mg caffeine, vitamins C & Bs: B1, B2, B3, B5, B6, B7 & B12, panax ginseng",
+            "SUPAH SHAKE": "Liftoff"
+        },
+        {
+            "INGREDIENTS": "60 calories, CLA",
+            "SUPAH SHAKE": "Prolessa Duo (fat reducer)"
+        },
+        {
+            "INGREDIENTS": "20 calories, 2g protein, vitamins A, C & E",
+            "SUPAH SHAKE": "Collagen"
+        },
+        {
+            "INGREDIENTS": "40 calories",
+            "SUPAH SHAKE": "Niteworks (Nitric Oxide)"
+        },
+        {
+            "INGREDIENTS": "60 calories, electrolytes: potassium, sodium & magnesium, vitamins C & E",
+            "SUPAH SHAKE": "H3O (hydration)"
+        },
+        {
+            "INGREDIENTS": "15 calories, 1000mg vitamin C, Zinc, echinacea",
+            "SUPAH SHAKE": "Best Defense "
+        },
+        {
+            "INGREDIENTS": "10 calories, Epicor, Vitamins C & D, Zinc",
+            "SUPAH SHAKE": "Immunity Essentials"
+        },
+        {
+            "INGREDIENTS": "100 calories, 15g protein, 2g sugar, 80mg caffeine",
+            "SUPAH SHAKE": "Protein Coffee"
+        },
+        {
+            "SUPAH SHAKE": "New Mom Supplement"
+        },
+        {
+            "SUPAH SHAKE": "Kids Supplement"
+        },
+        {
+            "INGREDIENTS": "140 calories, 10g protein, 4g fat, 15g carbs",
+            "SUPAH SHAKE": "Protein Bars"
+        },
+        {
+            "INGREDIENTS": "65 calories, 4g protein, 7g carbs",
+            "SUPAH SHAKE": "Protein Bites"
+        },
+        {},
+        {},
+        {
+            "INGREDIENTS": "NUTRITIONAL FACTS",
+            "NUTRITIONAL FACTS": "INGREDIENTS",
+            "SUPAH SHAKE": "INSANITEAS"
+        },
+        {
+            "INGREDIENTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Protein",
+            "SUPAH SHAKE": "Emerald"
+        },
+        {
+            "INGREDIENTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "NUTRITIONAL FACTS": "Tea, Liftoff, Hydration",
+            "SUPAH SHAKE": "Bad & Boujee"
+        },
+        {
+            "INGREDIENTS": "45 calories, 2g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Collagen ",
+            "SUPAH SHAKE": "Summer Refresher"
+        },
+        {
+            "INGREDIENTS": "115 calories, 5g carbs, 17g protein, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Collagen, Protein",
+            "SUPAH SHAKE": "Triple Berry Blast"
+        },
+        {
+            "INGREDIENTS": "25 calories, 7g carbs, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Probiotics, Immunity Booster",
+            "SUPAH SHAKE": "Feel Good"
+        },
+        {
+            "INGREDIENTS": "80 calories, 14g carbs, 12g sugar, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Hydration",
+            "SUPAH SHAKE": "Hydrating HiC"
+        },
+        {
+            "INGREDIENTS": "70 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Tea, Liftoff, Electrolytes",
+            "SUPAH SHAKE": "Monster"
+        },
+        {
+            "INGREDIENTS": "15 calories, 4g carbs, 17g protein, 120mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Tea, Liftoff, Collagen, Protein",
+            "SUPAH SHAKE": "Pretty In Pink"
+        },
+        {
+            "INGREDIENTS": "40 calories, 8g carbs, 255mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe Vera, Tea, 2x Liftoff",
+            "SUPAH SHAKE": "Great Scott"
+        },
+        {
+            "INGREDIENTS": "90 calories, 5g carbs, 17g protein, 45mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Collagen, Protein",
+            "SUPAH SHAKE": "Pink Starburst"
+        },
+        {
+            "INGREDIENTS": "75 calories, 17g carbs, 9g sugar, 180mg caffeine, Vitamins & Minerals ",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Electrolytes",
+            "SUPAH SHAKE": "Acai Refresher"
+        },
+        {
+            "INGREDIENTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Collagen, Protein",
+            "SUPAH SHAKE": "Orange Starburst"
+        },
+        {
+            "INGREDIENTS": "50 calories, 4g carbs, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, BCAAs",
+            "SUPAH SHAKE": "Cran-Apple"
+        },
+        {
+            "INGREDIENTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals ",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Collagen",
+            "SUPAH SHAKE": "Strawberry Mango DaiquiTea"
+        },
+        {
+            "INGREDIENTS": "90 calories, 21g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Hydration, Vitamin C booster",
+            "SUPAH SHAKE": "Leaky TeaKi"
+        },
+        {
+            "INGREDIENTS": "40 calories, 6g carbs, 2g protein, 120mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Collagen",
+            "SUPAH SHAKE": "Firecracker"
+        },
+        {
+            "INGREDIENTS": "95 calories, 22g carbs, 12g sugar, 255mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, 2x Liftoff, Hydration",
+            "SUPAH SHAKE": "Reborn"
+        },
+        {
+            "INGREDIENTS": "80 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Hydration ",
+            "SUPAH SHAKE": "Goblet of Fire"
+        },
+        {
+            "INGREDIENTS": "85 calories, 7g carbs, 15g protein, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Protein",
+            "SUPAH SHAKE": "Golden Snitch"
+        },
+        {
+            "INGREDIENTS": "40 calories, 6g carbs, 2g protein, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Tea, Liftoff, Collagen ",
+            "SUPAH SHAKE": "Gryffindor"
+        },
+        {
+            "INGREDIENTS": "90 calories, 7g carbs, 15g protein, 180mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Liftoff, Protein",
+            "SUPAH SHAKE": "Hufflepuff"
+        },
+        {
+            "INGREDIENTS": "50 calories, 2g carbs, 2g protein, 105mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Collagen, BCAAs",
+            "SUPAH SHAKE": "Ravenclaw"
+        },
+        {
+            "INGREDIENTS": "75 calories, 18g carbs, 12g sugar, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Hydration",
+            "SUPAH SHAKE": "Slytherin "
+        },
+        {
+            "INGREDIENTS": "105 calories, 9g carbs, 17g protein, 75mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Collagen, Protein",
+            "SUPAH SHAKE": "Amoretentia (Love Potion)"
+        },
+        {
+            "INGREDIENTS": "80 calories, 9g carbs, 175mg caffeine, creatine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Liftoff, Preworkout",
+            "SUPAH SHAKE": "Polyjuice Potion"
+        },
+        {
+            "INGREDIENTS": "135 calories, 17g carbs, 12g sugar, 15g protein, 105mg caffeine, Vitamins & Minerals",
+            "NUTRITIONAL FACTS": "Aloe, Tea, Hydration, Protein",
+            "SUPAH SHAKE": "Sorcerer's Stone"
+        }
+    ]
+}
