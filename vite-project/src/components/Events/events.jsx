@@ -41,7 +41,7 @@ export const EventsModal = ({ event }) => {
     return (
         <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
-            <div className="flex">
+            <div className="flex p-1">
                 <div className="event-month-day">{displayDate(startDate)}</div>
                 {event.end_date ? (
                     <div className="event-month-day"> - {displayDate(new Date(endDate))}</div>
@@ -54,7 +54,7 @@ export const EventsModal = ({ event }) => {
             <div className="event-title">{event.title}</div>
             <div className="divider"></div>
             <div className="event-details">{event.details}</div>
-            <div>For more information, contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
+            <div className='p-3'>For more information, contact us at +1 (786) 651-1153 or up2unutrition.gnv@gmail.com.</div>
             {user && user.admin ? (<button onClick={handleClick} className="text-2xl hover:underline hover:text-blue-900 mb-5">[Edit Event]</button>
             ) : (null)}
         </div>
