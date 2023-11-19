@@ -1,11 +1,12 @@
-from flask import Blueprint, flash,request,jsonify
+from flask import Blueprint, flash, request, jsonify
 from flask_login import login_required, current_user
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from ..models.db import db
 from ..models.events import Event
 from ..forms.event_form import EventForm
 
 event_routes = Blueprint('events', __name__)
+
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -17,12 +18,14 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{error}')
     return errorMessages
 
+
 @event_routes.route("/")
 def all_events():
     events = Event.query.all()
     event_list = [one_event.to_dict() for one_event in events]
 
     return event_list
+
 
 @event_routes.route("/", methods=["POST"])
 @login_required
@@ -34,29 +37,29 @@ def create_event():
     form = EventForm()
     form['csrf_token'].data = request.cookies["csrf_token"]
 
-
-
     if form.validate_on_submit():
         new_event = Event(
-            title = form.data['title'],
-            details = form.data['details'],
-            start_date = datetime.strptime(response["start_date"], "%Y-%m-%d"),
-            end_date = datetime.strptime(response["end_date"], "%Y-%m-%d"),
-            start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S"),
-            end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S" ),
-            color = form.data['color'],
-            created_at = date.today()
+            title=form.data['title'],
+            details=form.data['details'],
+            start_date=datetime.strptime(response["start_date"], "%Y-%m-%d"),
+            end_date=datetime.strptime(response["end_date"], "%Y-%m-%d"),
+            start_time=datetime.strptime(
+                response["start_time"], "%Y-%m-%d %H:%M:%S"),
+            end_time=datetime.strptime(
+                response["end_time"], "%Y-%m-%d %H:%M:%S"),
+            color=form.data['color'],
+            created_at=date.today()
         )
-
 
         db.session.add(new_event)
 
         db.session.commit()
 
-        return{'event': new_event.to_dict()}
+        return {'event': new_event.to_dict()}
 
     if form.errors:
-        return{"errors": validation_errors_to_error_messages}
+        return {"errors": validation_errors_to_error_messages}
+
 
 @event_routes.route("/update/<id>", methods=["PUT"])
 @login_required
@@ -65,13 +68,13 @@ def edit_event(id):
     event_form = EventForm()
     event_form["csrf_token"].data = request.cookies["csrf_token"]
 
-
     response = request.json
     temp_start_date = datetime.strptime(response["start_date"], "%Y-%m-%d")
     temp_end_date = datetime.strptime(response["end_date"], "%Y-%m-%d")
-    temp_start_time = datetime.strptime(response["start_time"], "%Y-%m-%d %H:%M:%S")
-    temp_end_time = datetime.strptime(response["end_time"],"%Y-%m-%d %H:%M:%S")
-   
+    temp_start_time = datetime.strptime(response["start_time"], "%H:%M")
+    temp_end_time = datetime.strptime(response["end_time"], "%H:%M")
+    temp_start_time = temp_start_time + timedelta(hours=1)
+    temp_end_time = temp_end_time + timedelta(hours=1)
 
     event.title = response['title']
     event.details = response['details']
@@ -85,10 +88,11 @@ def edit_event(id):
 
     return event.to_dict()
 
+
 @event_routes.route('<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_event(id):
     event = Event.query.get(id)
     db.session.delete(event)
     db.session.commit()
-    return {"res":"Successfully deleted"}
+    return {"res": "Successfully deleted"}

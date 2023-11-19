@@ -23,7 +23,7 @@ const LandingPage = () => {
 
     return (
         <>
-            <div className="landing-page w-full" style={{ backgroundImage: 'url(https://i.imgur.com/VyZicmD.jpg)', height: '100vh', width: '100%'}}>
+            <div className="landing-page w-full" style={{ backgroundImage: 'url(https://i.imgur.com/VyZicmD.jpg)', height: '100vh', width: '100%' }}>
                 <div className="landing-page-content">
                     <div className="orange-line-order">
                         <div className="red-line-order">
@@ -35,7 +35,7 @@ const LandingPage = () => {
                                     ) : (
                                         <button onClick={() => navigate("/login")} className="landing-page-button">START HERE</button>
                                     )}
-                                    <h4 className="text-align text-center mt-3">{displaySpecials(dailySpecials)}
+                                    <h4 className="text-align text-center mt-3 specials-text">{displaySpecials(dailySpecials)}
                                         <br />
                                         **Specials not applied online**</h4>
                                 </div>

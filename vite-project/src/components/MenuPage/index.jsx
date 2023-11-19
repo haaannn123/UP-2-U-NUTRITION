@@ -15,6 +15,7 @@ import DeleteItem from "./utility/forms/DeleteItem";
 
 
 
+
 const AddToCartButton = ({ item, price, checkedAddons }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
@@ -243,10 +244,22 @@ const MenuPage = () => {
   const [carouselDisabled, setCarouselDisabled] = useState(false);
   const [flippedCardId, setFlippCardId] = useState(null);
   const [cardWidth, setCardWidth] = useState("100%");
+  const [menuData, setMenuData] = useState(menu1)
 
   const cardContainerRef = useRef(null);
 
+  const handleDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
 
+    const items = Array.from(menu1);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    // Update the state with the reordered items
+    setMenu1(items);
+  };
 
   const handleViewAllClick = () => {
     setCarouselDisabled(!carouselDisabled);
@@ -395,6 +408,7 @@ const MenuPage = () => {
           {carouselDisabled ? "Group View" : "View All"}
         </button>
       </div>
+
       <div
         className={`menu-item-container ${carouselDisabled ? "group-view carousel-item2" : ""
           }`}

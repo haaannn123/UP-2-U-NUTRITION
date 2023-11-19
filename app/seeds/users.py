@@ -8,7 +8,7 @@ def seed_users():
         email='demo@aa.io',
         first_name='Demo',
         last_name="Lition",
-        phone_number="+14692339320",
+        phone_number="4692339320",
         password='HowMuchWoodCouldAWoodchuckChuck123',
         admin=True
     )
@@ -16,7 +16,7 @@ def seed_users():
         email='marnie@aa.io',
         first_name='Marnie',
         last_name="Smith",
-        phone_number="+14692339320",
+        phone_number="4692339320",
         password='password',
         admin=False
     )
@@ -25,7 +25,7 @@ def seed_users():
         password='password',
         first_name='Boobie',
         last_name="Solo",
-        phone_number="+14692339320",
+        phone_number="4692339320",
         admin=False
     )
 
