@@ -78,12 +78,12 @@ function Navigation({ isLoaded }) {
 					{user ? (
 						<div onClick={handleLogout} className="cursor-pointer flex flex-col justify-center items-center">
 							<i className="fa-solid fa-arrow-right-from-bracket"></i>
-							<div className="p-1">Log Out</div>
+							<div className="">Log Out</div>
 						</div>
 					) : (
 						<div onClick={() => navigate('/login')} className="cursor-pointer flex flex-col justify-center items-center">
 							<i className="fa-solid fa-arrow-right-to-bracket"></i>
-							<div className="p-1">Log In</div>
+							<div className="">Log In</div>
 						</div>
 					)}
 				</div>
