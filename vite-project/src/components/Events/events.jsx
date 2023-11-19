@@ -39,9 +39,9 @@ export const EventsModal = ({ event }) => {
     const endTimeFormatted = endTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 
     return (
-        <div className="event-container p-10">
+        <div className="event-container">
             <div className='event-bar' style={{ backgroundColor: `${event.color}` }}></div>
-            <div className="flex">
+            <div className="flex p-1">
                 <div className="event-month-day">{displayDate(startDate)}</div>
                 {event.end_date ? (
                     <div className="event-month-day"> - {displayDate(new Date(endDate))}</div>
